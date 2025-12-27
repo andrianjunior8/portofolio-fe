@@ -20,28 +20,40 @@ import { useState, useEffect } from "react";
 const PROJECTS = [
   {
     title: "Point of Sales",
-    desc: "High-performance REST API handling 10k+ requests/min",
+    desc: `This Point of Sale (POS) system is a modern cashier solution with EDC integration for seamless real-time cashless payments.
+It uses MySQL for reliable data storage and Redis for high-performance caching to ensure fast and stable transactions.`,
     tech: ["Golang", "MySQL", "Redis", "Next js", "Docker", "Jenkins"],
     gradient: "from-purple-500 to-pink-500",
     link: "pos",
   },
   {
+    title: "Siteman",
+    desc: `SITEMAN (Sistem Informasi Temuan Eksternal) is an information system designed to manage, track, and monitor external audit findings in a structured and centralized manner.
+It helps organizations ensure transparency, accountability, and timely follow-up on external findings through efficient data management and reporting.`,
+    tech: ["Golang", "MySQL", "Redis", "Next js", "Docker", "Jenkins"],
+    gradient: "from-orange-500 to-red-500",
+    link: "siteman",
+  },
+  {
     title: "Stock Opname",
-    desc: "Real-time data visualization with Next.js",
+    desc: `This stock opname system is built using Golang with concurrent processing to efficiently handle and process hundreds of thousands of inventory records.
+It ensures fast, accurate, and scalable stock reconciliation even under high data volume and heavy operational load.`,
     tech: ["Golang", "MySql", "Next.js", "Docker", "Jenkins", "WebSocket"],
     gradient: "from-blue-500 to-cyan-500",
     link: "stock-opname",
   },
   {
     title: "Business Continuity Management",
-    desc: "Distributed system with event-driven architecture",
+    desc: `This Business Continuity Management system is built with concurrent processing to ensure high reliability and uninterrupted operations during critical events.
+It utilizes Elasticsearch for centralized logging and real-time monitoring, enabling fast analysis, traceability, and rapid incident response.`,
     tech: ["Golang", "Elastic Search", "Docker", "Jenkins"],
     gradient: "from-orange-500 to-red-500",
     link: "bcm",
   },
   {
     title: "Partner",
-    desc: "WebSocket-based chat with typing indicators",
+    desc: `This partner integration system uses Elasticsearch to provide fast and accurate product search across large datasets.
+It connects and synchronizes APIs with external partners to enable seamless data exchange and service integration.`,
     tech: [
       "Golang",
       "SQL Server",
@@ -51,18 +63,20 @@ const PROJECTS = [
       "Jenkins",
     ],
     gradient: "from-green-500 to-teal-500",
-    link: "#",
+    link: "partner",
   },
   {
     title: "Banking Middleware Integration",
-    desc: "Secure payment processing system",
+    desc: `This banking middleware integration acts as a secure bridge between core banking systems and external services.
+It enables reliable data exchange, transaction processing, and system interoperability through standardized and scalable integration mechanisms.`,
     tech: ["Golang", "Elastic Search"],
     gradient: "from-indigo-500 to-purple-500",
-    link: "bsi",
+    link: "bmi",
   },
   {
     title: "Logistics",
-    desc: "Collaborative project management tool",
+    desc: `This logistics system is built using Golang with WebSocket support to enable real-time tracking and communication.
+It leverages Redis for fast data access and MySQL for reliable data storage to ensure scalable and efficient logistics operations.`,
     tech: [
       "Next.js",
       "Golang",
