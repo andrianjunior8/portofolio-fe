@@ -11,6 +11,7 @@ import {
   ChevronDown,
   ExternalLink,
   Download,
+  Link,
 } from "lucide-react";
 import { useState, useEffect } from "react";
 
@@ -22,21 +23,21 @@ const PROJECTS = [
     desc: "High-performance REST API handling 10k+ requests/min",
     tech: ["Golang", "MySQL", "Redis", "Next js", "Docker", "Jenkins"],
     gradient: "from-purple-500 to-pink-500",
-    link: "/project",
+    link: "pos",
   },
   {
     title: "Stock Opname",
     desc: "Real-time data visualization with Next.js",
     tech: ["Golang", "MySql", "Next.js", "Docker", "Jenkins", "WebSocket"],
     gradient: "from-blue-500 to-cyan-500",
-    link: "#",
+    link: "stock-opname",
   },
   {
     title: "Business Continuity Management",
     desc: "Distributed system with event-driven architecture",
     tech: ["Golang", "Elastic Search", "Docker", "Jenkins"],
     gradient: "from-orange-500 to-red-500",
-    link: "#",
+    link: "bcm",
   },
   {
     title: "Partner",
@@ -57,7 +58,7 @@ const PROJECTS = [
     desc: "Secure payment processing system",
     tech: ["Golang", "Elastic Search"],
     gradient: "from-indigo-500 to-purple-500",
-    link: "#",
+    link: "bsi",
   },
   {
     title: "Logistics",
@@ -72,7 +73,7 @@ const PROJECTS = [
       "Google Cloud Storage",
     ],
     gradient: "from-yellow-500 to-orange-500",
-    link: "#",
+    link: "logistic",
   },
 ];
 // ======================================================
@@ -264,7 +265,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <p className="text-lg text-gray-300 leading-relaxed">
-                I'm a passionate full stack engineer with{" "}
+                {`I'm a passionate full stack engineer with{" "}`}
                 <span className="text-blue-400 font-semibold">
                   3 years of experience
                 </span>{" "}
@@ -334,43 +335,36 @@ export default function Home() {
                 }`}
               >
                 {visibleProjects.map((project, i) => (
-                  <div
+                  <a
                     key={`${currentSlide}-${i}`}
-                    className="group relative bg-gray-800/30 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/50 hover:border-gray-600 transition-all duration-300 hover:transform hover:scale-105"
+                    href={"project/" + project.link}
                   >
                     <div
-                      className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300`}
-                    />
-
-                    <div
-                      className={`w-12 h-12 bg-gradient-to-br ${project.gradient} rounded-xl mb-4 flex items-center justify-center`}
+                      key={`${currentSlide}-${i}`}
+                      className="group relative bg-gray-800/30 backdrop-blur-sm rounded-2xl p-6 border border-gray-700/50 hover:border-gray-600 transition-all duration-300 hover:transform hover:scale-105"
                     >
-                      <ExternalLink size={24} />
+                      <div
+                        className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300`}
+                      />
+                      <div
+                        className={`w-12 h-12 bg-gradient-to-br ${project.gradient} rounded-xl mb-4 flex items-center justify-center`}
+                      ></div>
+                      <h3 className="text-2xl font-bold mb-3">
+                        {project.title}
+                      </h3>
+                      <p className="text-gray-400 mb-4">{project.desc}</p>
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {project.tech.map((tech) => (
+                          <span
+                            key={tech}
+                            className="px-3 py-1 bg-gray-700/50 rounded-full text-sm text-gray-300"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
                     </div>
-
-                    <h3 className="text-2xl font-bold mb-3">{project.title}</h3>
-                    <p className="text-gray-400 mb-4">{project.desc}</p>
-
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.tech.map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-3 py-1 bg-gray-700/50 rounded-full text-sm text-gray-300"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`inline-flex items-center gap-2 text-sm font-semibold bg-gradient-to-r ${project.gradient} bg-clip-text text-transparent hover:underline`}
-                    >
-                      View Project <ExternalLink size={16} />
-                    </a>
-                  </div>
+                  </a>
                 ))}
               </div>
             </div>
@@ -436,7 +430,7 @@ export default function Home() {
             Get in Touch
           </h2>
           <p className="text-xl text-gray-400 mb-12">
-            I'm always open to discussing new projects and opportunities
+            {`I'm always open to discussing new projects and opportunities`}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
